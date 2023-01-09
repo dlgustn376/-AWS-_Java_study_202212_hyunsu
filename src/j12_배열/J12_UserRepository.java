@@ -65,7 +65,6 @@ public class J12_UserRepository {
 	}
 	
 	
-	
 	/*
 	 *	1. 사용자이름으로 회원 조회
 	 *
