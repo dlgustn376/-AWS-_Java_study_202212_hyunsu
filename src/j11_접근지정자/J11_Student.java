@@ -5,9 +5,6 @@ public class J11_Student {
 	private String name;
 	private int age;
 	
-	
-	
-	
 	public J11_Student(String name, int age) {
 		this.name = name;
 		this.age = age;

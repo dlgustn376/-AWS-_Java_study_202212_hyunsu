@@ -11,8 +11,8 @@ public class J09_StudentMain {
 		J09_Student student1 = new J09_Student(); // 생성자 호출
 		J09_Student student2 = new J09_Student(); // 생성자 호출
 		
-		student1.name = "학생1";
-		student1.age = 15;
+		student1.setName("이현수");
+		student1.setAge(25);
 		 
 		student1.printInfo();
 

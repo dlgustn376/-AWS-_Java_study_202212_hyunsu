@@ -51,8 +51,9 @@ public class DoubleArray1 {
 		
 		for(int i = 0; i < d_nums2.length; i++) {
 			for(int j = 0; j < d_nums2[i].length; j++) {
-				System.out.println(d_nums2[i][j]);
+				System.out.print(d_nums2[i][j]);
 			}
+			System.out.println();
 		}
 		
 		

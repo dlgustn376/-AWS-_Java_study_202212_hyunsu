@@ -2,11 +2,12 @@ package j10_생성자;
 
 public class J10_Student {
 	
-	String name;	// 참조 변수
-	int age;		// 레퍼런스 변수 , 멤버 변수
+	public String name;	// 참조 변수
+	public int age;		// 레퍼런스 변수 , 멤버 변수
 	
 	
 	J10_Student() {
+		// 반환 값은 주소값
 		System.out.println("기본 생성자 호출");
 	}
 
