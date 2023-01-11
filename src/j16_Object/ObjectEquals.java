@@ -28,13 +28,18 @@ public class ObjectEquals {
 ///////////////////////////////////////////////////////////////////////////////
 		
 //		각가 다른 주소값
+		Object obj = null;
 		Student s1 = new Student("박은빈",24);
 		Student s2 = new Student("박은빈",24);
 		SubStudent s3 = new SubStudent("박은빈", 24);
 		
 //		매개변수가 대입되면서 업캐스팅이 됨.
 		System.out.println(s1.equals(s3));
-		
+		obj = s1;
+//		Student 와 SubStudent 비교를 하는것. 
+//		업캐스팅을 하고 비교
+//		System.out.println(s1.getClass() == s3.getClass());
+		System.out.println(obj.getClass() == SubStudent.class);
 		
 		
 		
