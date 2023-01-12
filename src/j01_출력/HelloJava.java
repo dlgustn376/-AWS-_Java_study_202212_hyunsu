@@ -1,4 +1,7 @@
 package j01_출력;
+
+import j17_스태틱.싱글톤.KIA;
+
 /**
  * 
  * @author ITPS
@@ -26,6 +29,10 @@ public class HelloJava {
 		System.out.println("주소: 부산시 서구 동대신동");
 		System.out.println("연락처: 010-2469-3768");
 		System.out.println("수업: AWS기반 공공빅데이터 활용 웹개발자 양성");
+		
+		System.out.println();
+		
+		KIA.getInstance().printCompanyName();
 		
 	}
 	
