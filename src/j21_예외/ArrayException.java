@@ -8,11 +8,11 @@ public class ArrayException {
 		try {	// 예외가 일어날 수도 있는 부분
 
 //			throw는 강제로 예외를 발생시킴
-			throw new NullPointerException();
+//			throw new NullPointerException();
 			
-//			for(int i = 0; i < 5; i++) {
-//				System.out.println(nums[i]);
-//			}
+			for(int i = 0; i < 5; i++) {
+				System.out.println(nums[i]);
+			}
 		}catch (IndexOutOfBoundsException e) {
 			System.out.println("예외 처리함");
 		}catch (NullPointerException e) {
