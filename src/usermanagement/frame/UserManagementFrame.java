@@ -6,20 +6,32 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import com.google.gson.JsonObject;
+
+import usermanagement.service.UserService;
 
 public class UserManagementFrame extends JFrame {
 	
 	/**
 	 * 
 	 */
+	private List<JTextField> loginFields;
+	private List<JTextField> registerFields;
+	
 	private static final long serialVersionUID = 1L;
 	private CardLayout mainCard;
 	private JPanel mainPanel;
@@ -29,6 +41,7 @@ public class UserManagementFrame extends JFrame {
 	private JTextField registerNameField;
 	private JTextField registerPasswordField;
 	private JTextField registerEmailField;
+	
 
 	/**
 	 * Launch the application.
@@ -50,6 +63,9 @@ public class UserManagementFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public UserManagementFrame() {
+		loginFields = new  ArrayList<>();
+		registerFields = new  ArrayList<>();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 500);
 		mainPanel = new JPanel();
@@ -102,6 +118,23 @@ public class UserManagementFrame extends JFrame {
 		loginPanel.add(passwordLabel);
 		
 		JButton loginButton = new JButton("Login");
+		
+//		MouseListener listener = new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				
+//			}
+//		};
+//		
+//		loginButton.addMouseListener(listener);
+		
+		loginButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
+		
 		loginButton.setBackground(new Color(255, 255, 255));
 		loginButton.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		loginButton.setBounds(80, 296, 230, 30);
@@ -117,6 +150,7 @@ public class UserManagementFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				mainCard.show(mainPanel, "registerPanel");
+				clearFields(loginFields);
 			}
 		});
 		signupLink.setHorizontalAlignment(SwingConstants.CENTER);
@@ -142,6 +176,7 @@ public class UserManagementFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				mainCard.show(mainPanel, "loginPanel");
+				clearFields(registerFields);
 			}
 		});
 		registerSigninLink.setForeground(new Color(0, 0, 255));
@@ -179,6 +214,12 @@ public class UserManagementFrame extends JFrame {
 		registerPasswordLabel.setBounds(80, 185, 66, 15);
 		registerPanel.add(registerPasswordLabel);
 		
+		registerPasswordField = new JTextField();
+		registerPasswordField.setHorizontalAlignment(SwingConstants.LEFT);
+		registerPasswordField.setColumns(10);
+		registerPasswordField.setBounds(80, 201, 230, 30);
+		registerPanel.add(registerPasswordField);
+		
 		JLabel registerNameLabel = new JLabel("name");
 		registerNameLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		registerNameLabel.setFont(new Font("굴림", Font.BOLD, 12));
@@ -197,11 +238,6 @@ public class UserManagementFrame extends JFrame {
 		registerEmailLabel.setBounds(80, 295, 66, 15);
 		registerPanel.add(registerEmailLabel);
 		
-		registerPasswordField = new JTextField();
-		registerPasswordField.setHorizontalAlignment(SwingConstants.LEFT);
-		registerPasswordField.setColumns(10);
-		registerPasswordField.setBounds(80, 201, 230, 30);
-		registerPanel.add(registerPasswordField);
 		
 		registerEmailField = new JTextField();
 		registerEmailField.setHorizontalAlignment(SwingConstants.LEFT);
@@ -210,9 +246,53 @@ public class UserManagementFrame extends JFrame {
 		registerPanel.add(registerEmailField);
 		
 		JButton registerButton = new JButton("Register");
+		registerButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JsonObject userJson = new JsonObject();
+				userJson.addProperty("username", registerUsernameField.getText());
+				userJson.addProperty("password", registerPasswordField.getText());
+				userJson.addProperty("name", registerNameField.getText());
+				userJson.addProperty("email", registerEmailField.getText());
+				
+				UserService userService = UserService.getInstance();
+				
+				Map<String, String> response = userService.register(userJson.toString());
+				if(response.containsKey("error")) {
+					JOptionPane.showMessageDialog(null, response.get("error"), "error", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				
+				JOptionPane.showMessageDialog(null, response.get("ok"), "ok", JOptionPane.INFORMATION_MESSAGE);
+				mainCard.show(mainPanel, "loginPanel"); // 화면 전환 후 필드를 지워야 함.
+				clearFields(registerFields);
+				
+			}
+		});
 		registerButton.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		registerButton.setBackground(Color.WHITE);
 		registerButton.setBounds(80, 349, 230, 30);
 		registerPanel.add(registerButton);
+		
+		loginFields.add(usernameField);
+		loginFields.add(passwordField);
+		
+		registerFields.add(registerUsernameField);
+		registerFields.add(registerPasswordField);
+		registerFields.add(registerNameField);
+		registerFields.add(registerEmailField);
+		
 	}
+	
+	private void clearFields (List<JTextField> textFields) {
+		for(JTextField field : textFields) {
+			if(field.getText().isEmpty()) {
+				continue;
+			}
+			field.setText("");
+		}
+		
+	}
+	
+	
 }
