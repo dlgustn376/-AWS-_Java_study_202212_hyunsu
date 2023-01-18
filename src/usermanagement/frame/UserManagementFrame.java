@@ -131,7 +131,7 @@ public class UserManagementFrame extends JFrame {
 		loginButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				System.out.println("로그인 요청!!");
 			}
 		});
 		
