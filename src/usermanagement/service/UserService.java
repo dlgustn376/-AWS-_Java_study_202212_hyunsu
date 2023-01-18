@@ -58,14 +58,42 @@ public class UserService {
 			response.put("error", "이미 가입된 이메일입니다.");
 			return response;
 		}
-
-		
+		System.out.println(user);
 		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
 		System.out.println("암호화 후");
 		System.out.println(user);
-		
+
 		userRepository.saveUser(user);
+		System.out.println();
 		response.put("ok", "회원 가입 성공!!");
+		return response;
+		
+	}
+	
+	public Map<String, String> login(String userJson){
+		Map<String, String> response = new HashMap<>();
+		
+		Map<String, String> userMap = gson.fromJson(userJson, Map.class);
+
+		String username = userMap.get("username");
+		String password = userMap.get("password");
+		User user = UserRepository.getInstance().findUserByUsername(username);
+
+		if(user == null) {
+			user = UserRepository.getInstance().findUserByEmail(username);
+			if(user == null) {
+				response.put("error", "일치하지 않는 사용자입니다.");
+				return response;
+			}
+		}
+		
+		if(!(BCrypt.checkpw(password, user.getPassword()))) {
+			response.put("error", "일치하지 않는 사용자입니다.");
+			return response;
+		}
+
+		
+		response.put("ok", "로그인 성공!!");
 		
 		return response;
 		
@@ -81,10 +109,40 @@ public class UserService {
 		return userRepository.findUserByEmail(email) != null;
 	}
 	
+	
+	
+	
+	
+//	public void checkRegister(String userJson) {
+//		Map<String, String> response = new HashMap<>();
+//		
+//		Map<String, String> userMap = gson.fromJson(userJson, Map.class);
+//		User user =  gson.fromJson(userJson, User.class);
+//		String pw = BCrypt.hashpw(userJson.toString(), BCrypt.gensalt());
+//		
+//				BCrypt.checkpw(user.getPassword(), BCrypt.gensalt());
+//		
+//		
+//		System.out.println(pw);
+//		System.out.println(BCrypt.checkpw("1234", pw));
+//		user.setPassword(pw);
+//	
+//		
+//		
+//	}
+	
+
+	
+	
+	
 //	private boolean isBlank(User user) {
 //		
 //		return user == null;
 //	}
+	
+	
+	
+	
 	
 	
 	

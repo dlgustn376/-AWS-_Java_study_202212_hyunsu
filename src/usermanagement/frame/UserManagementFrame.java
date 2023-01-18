@@ -6,7 +6,6 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +21,7 @@ import javax.swing.SwingConstants;
 
 import com.google.gson.JsonObject;
 
+import usermanagement.repository.UserRepository;
 import usermanagement.service.UserService;
 
 public class UserManagementFrame extends JFrame {
@@ -119,19 +119,33 @@ public class UserManagementFrame extends JFrame {
 		
 		JButton loginButton = new JButton("Login");
 		
-//		MouseListener listener = new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				
-//			}
-//		};
-//		
-//		loginButton.addMouseListener(listener);
-		
 		loginButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("로그인 요청!!");
+				JsonObject userJson = new JsonObject();
+				// Field에서 가져온 값
+				userJson.addProperty("username", usernameField.getText());
+				userJson.addProperty("password", passwordField.getText());
+				// 1. 가져온 usernameField getText 값이 있는 지 찾아야함.
+				// 2. 있다면 password 비교, 없다면 없는 사용자라고 나옴.
+				// 2-1. passwordField에서 가져온 값을 암호화한 값과 비교.
+				System.out.println(userJson.toString());
+				//  Register에서 가져오기
+				UserService userService = UserService.getInstance();
+				
+				// username과 password 일치 확인
+				// email과 password 일치 확인
+				
+				Map<String, String> response = userService.login(userJson.toString());
+				if(response.containsKey("error")) {
+					JOptionPane.showMessageDialog(null, response.get("error"), "error", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				
+				JOptionPane.showMessageDialog(null, response.get("ok"), "ok", JOptionPane.INFORMATION_MESSAGE);
+//				mainCard.show(mainPanel, "loginPanel"); // 화면 전환 후 필드를 지워야 함.
+//				clearFields(registerFields);
+
 			}
 		});
 		

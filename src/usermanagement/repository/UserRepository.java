@@ -32,10 +32,14 @@ public class UserRepository {
 		userDataList.add(user);
 	}
 	
+	
 	public User findUserByUsername(String username) {
 		User user = null;
 		
 		for(User u : userDataList) {
+			if(u == null) {
+				continue;
+			}
 			if(u.getUsername().equals(username)) {
 				user = u;
 				break;
@@ -49,6 +53,9 @@ public class UserRepository {
 		User user = null;
 		
 		for(User u : userDataList) {
+			if(u == null) {
+				continue;
+			}
 			if(u.getEmail().equals(email)) {
 				user = u;
 				break;
@@ -57,7 +64,7 @@ public class UserRepository {
 		
 		return user;
 	}
-	
+
 	
 	
 	
