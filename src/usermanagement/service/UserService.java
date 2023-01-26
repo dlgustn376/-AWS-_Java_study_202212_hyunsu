@@ -80,7 +80,6 @@ public class UserService {
 		
 	}
 	
-	
 	// 중복된 username이 있음을 체크
 	private boolean duplicatedUsername(String username) {
 		return userRepository.findUserByUsername(username) != null;
