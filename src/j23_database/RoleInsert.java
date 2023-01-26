@@ -59,7 +59,7 @@ public class RoleInsert {
 	private DBConnectionMgr pool;		// RoleInsert에서 pool을 전역변수로 선언.
 	
 	public RoleInsert() {				// RoleInsert 객체가 생성되면 하나만 존재해야 하므로 싱글톤 패턴을 사용.
-		pool = DBConnectionMgr.getInstance();
+		pool = DBConnectionMgr.getInstance();	// 싱글톤에 백터가 10개의 공간으로 만들어져 있다. 공간을 제한한다.
 	}
 	
 	public int saveRole(String roleName) {	// int 값으로 반환. insert,update, delete는 개수를 반환하기 떄문. Stirng roleName의 매개변수를 받는다.
@@ -67,7 +67,8 @@ public class RoleInsert {
 		
 		String sql = null;				// sql은 MySQL에 String 문자열로 입력되기 때문에 sql의 선언 및 초기화를 해줌. Connection이 정확히 무슨 역할인지는 모름.
 		Connection con = null;			// Connection con은 java의 sql에서 연결에 필요한 인터페이스이다.
-		PreparedStatement pstmt = null;	// 무슨 역할인지 모름.
+		PreparedStatement pstmt = null;	// Statement 문으로 SQL문을 작성하는데 값 대신 ?를 넣고 해당 자료형을 set~~()해서 순번과 값을 넣으면 되도록해준다.
+		ResultSet rs = null;
 		
 		try {
 			con = pool.getConnection();	// con에 생성된 DBConnectionMgr의 객체에서 getConnection을 사용.
@@ -75,12 +76,17 @@ public class RoleInsert {
 			sql = "insert into role_mst values (0, ?)";		// sql문으로 role_mst에 값을 입력한다는 의미. 0은 autoIncrese로 값이 증가. ? 는 role_name으로 받는다.
 			
 			pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);	// prepareStatement 메소드는 sql문을 처리하는 메소드로 생성된 키값을 반환해 준다.
-			successCount = pstmt.executeUpdate();		// executeUpdate()는 insert, update, delete 등 성공한 건수를 int 값으로 반환해준다.
+			
+			pstmt.setString(1, roleName);				// ? 에 String 값을 입력.
+			
+			successCount = pstmt.executeUpdate();		// pstmt에 쿼리문이 저장 되어 있고 실행.
+			// executeUpdate()는 insert, update, delete 등 성공한 건수를 int 값으로 반환해준다.
 			
 			int newkey = 0;				// 새로운 키 값을 알기위한 선언 및 초기화
 			
-			ResultSet rs = pstmt.getGeneratedKeys(); 	// 데이터베이스 결과 집합을 나타내는 테이블, 데이터 베이스를 쿼리하는 문을 실행함.
-														// getGeneratedKeys() 생성된 키값을 가져오는 메소드.
+			rs = pstmt.getGeneratedKeys();
+			// 데이터베이스 결과 집합을 나타내는 테이블, 데이터 베이스를 쿼리하는 문을 실행함.
+			// getGeneratedKeys() 생성된 키값을 가져오는 메소드.
 			
 			if(rs.next()) {				// rs.next() 는 다음 key 값이 있다면 실행이 되는 조건이다.
 				newkey = rs.getInt(1);	// 컬럼index 1번과 비교하여 1번 컬럼인데스에 다음 값이 있다면 실행. 
@@ -92,11 +98,14 @@ public class RoleInsert {
 			
 		} catch (Exception e) {			// 예외처리. con 에서 연결이 되지 않은 경우 등 예외처리를 해주어야 함.
 			e.printStackTrace();		// 예외처리문으로 예외의 이유를 알림.
-		}		
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
 		
 		
 		
 		return successCount;
+		
 	}
 	
 	public static void main(String[] args) {	// 메인 문
