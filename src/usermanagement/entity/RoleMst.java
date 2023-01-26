@@ -6,6 +6,6 @@ import lombok.Data;
 @Builder
 @Data
 public class RoleMst {
-	private int userId;
-	private String userName;
+	private int roleId;
+	private String roleName;
 }

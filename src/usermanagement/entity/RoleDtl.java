@@ -10,5 +10,5 @@ public class RoleDtl {
 	private int roleId;
 	private int userId;
 	
-	
+	private RoleMst roleMst;
 }
