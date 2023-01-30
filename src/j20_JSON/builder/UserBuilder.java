@@ -1,8 +1,5 @@
 package j20_JSON.builder;
 
-import lombok.Data;
-
-@Data
 public class UserBuilder {
 
 	public static UserBuilder builder() {
