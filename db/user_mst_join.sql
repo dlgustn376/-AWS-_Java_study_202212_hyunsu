@@ -1,3 +1,5 @@
+SELECT * FROM chatting.user_mst;
+
 insert into user_mst
 values (0 , 'aaab', '1234', '김준일', 'aaab@gmail.com');
 
@@ -27,17 +29,17 @@ select
     um.name,
     um.email,
     rd.role_id,
+    rd.role_dtl_id,
+    rd.user_id,
+    rm.role_id,
     rm.role_name
 from
 	user_mst um
     left outer join role_dtl rd on(rd.user_id = um.user_id)
-    left outer join role_mst rm on(rm.role_id = rd.role_id);
+    left outer join role_mst rm on(rm.role_id = rd.role_id)
+where
+	um.username = 'asda';
 
-select
-	*
-from
-	user_mst um
-    left outer join role_dtl rd on(rd.user_id = um.user_id)
-    left outer join role_mst rm on(rm.role_id = rd.role_id);
+
 
 
