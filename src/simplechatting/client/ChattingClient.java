@@ -93,6 +93,9 @@ public class ChattingClient extends JFrame {
 						
 						String welcomeMessage = in.readLine();
 						contentView.append(welcomeMessage);
+						
+						
+						
 					}
 					
 					
