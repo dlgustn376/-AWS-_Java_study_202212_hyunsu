@@ -10,14 +10,21 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+// 하나의 스레드
 public class SocketServer  extends Thread {
 	
+	// 소캣서버들이 들어있는 리스트
 	public static List<SocketServer> clientList = new ArrayList<>();
 	private Socket socket;
-	private String name;
+	private InputStream inputStream;
+	private OutputStream outputStream;
 	
+	private static int autoIncrement = 1;
+	private String name;
+	// 해당 클라이언트만 생성
 	public SocketServer(Socket socket) {
 		this.socket = socket;
+		name = "user" + autoIncrement++;
 		clientList.add(this);
 	}
 	
@@ -29,48 +36,46 @@ public class SocketServer  extends Thread {
 		System.out.println("IP: " + socket.getInetAddress());	
 		
 		try {
-			InputStream inputStream = socket.getInputStream();
+			inputStream = socket.getInputStream();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 			
-			OutputStream outputStream = socket.getOutputStream();
-			PrintWriter writer = new PrintWriter(outputStream, true);
+			sendToAll(name + "님이 접속하였습니다.");
 			
-			writer.println("서버 접속 성공!");
-			writer.println("사용자 이름을 입력하세요!");
-			
-			String message = null;
-			boolean loginflag = false; 
-			while((message = reader.readLine()) != null) {
-				if(name == null) {
-					name = message;
-					System.out.println("\n서버에 " + name + "님이 접속하였습니다.");
-					
+			while(true) {
+				// 메시지가 들어올 때까지 대기
+				// readLine() 무조건 문자열을 가져옴
+				// null이 온다는 것은 연결이 끊어졌다는 의미
+				String message = reader.readLine();
+				if(message == null) {
+					break;
 				}
-				// 힌명의 클라이언트가 들어오면 다른 클라이언트들에게 알림
-				for(SocketServer s : clientList) {	
-					try {
-						outputStream = s.socket.getOutputStream();
-						writer = new PrintWriter(outputStream, true);
-						if(!loginflag) {
-							writer.println("\n" + s.name + "님이 접속하였습니다.");
-							loginflag = true;
-							continue;
-						}
-						writer.println("\n" + s.name + ": " + message);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-
-				}
-				
+				// 브로드캐스팅(모든 클라이언트들에게 동시에 메시시를 보냄)
+				sendToAll(message);
 			}
-			
 		
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				// 연결 끊기
+				inputStream.close();
+				outputStream.close();
+				socket.close();
+				
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}
 		
-	
+	private void sendToAll(String message) throws IOException {
+		for(SocketServer socketServer : clientList) {
+			outputStream = socketServer.socket.getOutputStream();
+			PrintWriter writer = new PrintWriter(outputStream, true);
+			// name은 자기 자신, 멤버변수에 들어 있는 이름
+			// 방금 들어온 대상
+			writer.println(name + ":" + message);
+		}
+	}
 }

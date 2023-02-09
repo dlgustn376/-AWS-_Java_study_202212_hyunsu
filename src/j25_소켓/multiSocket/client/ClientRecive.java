@@ -19,9 +19,7 @@ public class ClientRecive extends Thread {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 			
 			while(true) {
-				if(Client.name != null) {
-					System.out.println(reader.readLine());
-				}
+				System.out.println(reader.readLine());
 			}
 			
 		} catch (IOException e) {

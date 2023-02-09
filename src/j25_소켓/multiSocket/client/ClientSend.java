@@ -20,11 +20,7 @@ public class ClientSend extends Thread{
 			Scanner scanner = new Scanner(System.in);
 			
 			while(true) {
-				if(Client.name == null) {
-					Client.name = scanner.nextLine();
-					writer.println(Client.name);
-					continue;
-				}
+			
 				writer.println(scanner.nextLine());
 			}
 			

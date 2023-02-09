@@ -6,24 +6,19 @@ import java.net.UnknownHostException;
 
 public class Client {
 	
-	public static String name;
-	
 	public static void main(String[] args) {
 		try {
 			Socket socket = new Socket("127.0.0.1",9090);
-			System.out.println("서버에 접속함?");
-			
+			// 메시지른 받기에 대기하는 스레드
 			ClientRecive clientRecive = new ClientRecive(socket);
 			clientRecive.start();
-			
+			// 메시지를 보내기에 대기하는 스레드
 			ClientSend clientSend = new ClientSend(socket);
 			clientSend.start();
 			
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

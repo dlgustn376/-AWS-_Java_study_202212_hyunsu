@@ -13,9 +13,13 @@ public class Server {
 			ServerSocket serverSocket = new ServerSocket(PORT);
 			System.out.println("서버를 실행합니다.");
 			
-			while(true) { // 클라이언트 접속을 기다리는 무한 루프
-				Socket socket = serverSocket.accept(); // 클라이언트 하나씩 접속했을 떄.
+			while(true) {
+				// 클라이언트의 연결을 기다림
+				Socket socket = serverSocket.accept(); 
+				// 클라이언트가 연결이 되면 소켓 객체를 하나 생성한다.
+				// 1 소캣 = 1 클라이언트
 				SocketServer socketServer = new SocketServer(socket);
+				// 스레드가 동작
 				socketServer.start();
 			}
 			
