@@ -90,7 +90,7 @@ public class ServerApplication {
 						
 			
 			while(true){
-				Socket socket =	serverSocket.accept(); // 클라이언트의 접속을 기다리는 것
+				Socket socket =	serverSocket.accept(); // 클라이언트의 접속을 기다리는 것. #1에 반응
 				ConnectedSocket connectedSocket = new ConnectedSocket(socket);				
 				connectedSocket.start();				
 			}

@@ -23,7 +23,6 @@ import usermanagement.server.controller.AccountController;
 public class SocketServer extends Thread {
 
 	private static List<SocketServer> socketServerList = new ArrayList<>();
-	
 	private Socket socket;
 	private InputStream inputStream;
 	private OutputStream outputStream;
