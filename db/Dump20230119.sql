@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `instructor_mst`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `instructor_mst` (
   `instructor_id` int NOT NULL,
-  `instructor_name` varchar(45) NOT NULL,
+  `instructor_name` varchar(45) DEFAULT NULL,
   `university_id` int DEFAULT NULL,
   PRIMARY KEY (`instructor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -102,6 +102,7 @@ DROP TABLE IF EXISTS `mentor_mst`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mentor_mst` (
   `mentor_id` int NOT NULL,
+  `student_id` int NOT NULL,
   `mentor_name` varchar(45) NOT NULL,
   PRIMARY KEY (`mentor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -113,7 +114,6 @@ CREATE TABLE `mentor_mst` (
 
 LOCK TABLES `mentor_mst` WRITE;
 /*!40000 ALTER TABLE `mentor_mst` DISABLE KEYS */;
-INSERT INTO `mentor_mst` VALUES (1,'문자영'),(2,'문성현');
 /*!40000 ALTER TABLE `mentor_mst` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +127,7 @@ DROP TABLE IF EXISTS `student_mst`;
 CREATE TABLE `student_mst` (
   `student_id` int NOT NULL,
   `student_name` varchar(45) NOT NULL,
-  `mentor_id` int DEFAULT NULL,
+  `mentor_id` int NOT NULL,
   PRIMARY KEY (`student_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -138,7 +138,7 @@ CREATE TABLE `student_mst` (
 
 LOCK TABLES `student_mst` WRITE;
 /*!40000 ALTER TABLE `student_mst` DISABLE KEYS */;
-INSERT INTO `student_mst` VALUES (1,'김동민',1),(2,'김두영',1),(3,'장진원',2);
+INSERT INTO `student_mst` VALUES (1,'김동민',0),(2,'김두영',0),(3,'장진원',0);
 /*!40000 ALTER TABLE `student_mst` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,4 +183,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-19 17:36:12
+-- Dump completed on 2023-01-19 17:36:00
