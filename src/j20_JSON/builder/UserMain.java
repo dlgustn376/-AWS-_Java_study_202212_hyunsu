@@ -1,20 +1,19 @@
 package j20_JSON.builder;
 
 public class UserMain {
-	
-	
 	public static void main(String[] args) {
 //		User user = new User();
-		User.UserBuilder userBuilder = new User.UserBuilder();
+		User.UserBuilder userBuilder = new User.UserBuilder();// userclass 안에 들어있는 userbuilder 생성자
 		
-		User user2 = User.builder()
+		User user = User.builder()
 				.username("aaa")
 				.password("1234")
-				.name("홍길동")
-				.email("aaa@gmail.com")
+				.name("김준일")
 				.build();
 		
-		System.out.println(user2);
 		
+
+		System.out.println(user);
 	}
+
 }

@@ -1,31 +1,28 @@
-package j12_배열;
+package J12_배열;
 
 public class Array2 {
-	
-	public static void printNames(String[] names) {
-		for(int i = 0; i < names.length; i++) {
-			System.out.println("이름[" + (i + 1) + "]: " + names[i]);
-		}
-		
-		System.out.println();
-	}
-	
 	public static void main(String[] args) {
+		int num1 = 10;
+		int num2 = 20;
+		int num3 = 30;
+		int num4 = 40;
+		int num5 = 50;
 		
-		String[] names = new String[3];
+		System.out.println(num1);
+		System.out.println(num2);
+		System.out.println(num3);
+		System.out.println(num4);
+		System.out.println(num5);
 		
-		names[0] = "홍길동";
-		names[1] = "허준";
-		names[2] = "임꺽정";
+		int [] nums = new int[5];
+		nums[0] = 10;
+		nums[1] = 20;
+		nums[2] = 30;
+		nums[3] = 40;
+		nums[4] = 50;
 		
-		String[] names2 = new String[] {"정약용", "송상현", "박연"};	// 배열 데이터
-		String[] names3 = {"장영실", "이순신", "곽재우", "나대용"}; 	// 선언 일 때만, 허용. 
-
-		printNames(names);
-		printNames(new String[] {"정약용", "송상현", "박연"});
-		printNames(names3);
-		
-		
-		
+		for(int i = 0; i < 5; i ++) {
+			System.out.println(nums[i]);
+		}
 	}
 }

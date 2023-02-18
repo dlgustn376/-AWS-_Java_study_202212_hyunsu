@@ -1,12 +1,11 @@
-package j13_상속;
+package J13_상속;
 
 public class ExtendsMain {
 	
 	public static void main(String[] args) {
 		
 		KiaCar kiaCar = new KiaCar();
-//		HyundaiCar hyundaiCar = new HyundaiCar();
-	
+		
 		kiaCar.setPrice(30000000);
 		
 		System.out.println(kiaCar);
@@ -16,5 +15,5 @@ public class ExtendsMain {
 		
 		
 	}
-	
+
 }

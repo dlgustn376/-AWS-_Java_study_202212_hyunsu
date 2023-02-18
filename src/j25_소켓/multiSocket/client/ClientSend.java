@@ -6,28 +6,38 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+import com.mysql.cj.jdbc.exceptions.MySQLStatementCancelledException;
+
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class ClientSend extends Thread{
-	
+public class ClientSend extends Thread {
+
 	private final Socket socket;
+	
 	@Override
 	public void run() {
 		try {
-			OutputStream outpurStream = socket.getOutputStream();
-			PrintWriter writer = new PrintWriter(outpurStream, true);
+			OutputStream outputStream = socket.getOutputStream();
+			PrintWriter writer = new PrintWriter(outputStream, true);
 			Scanner scanner = new Scanner(System.in);
 			
 			while(true) {
-			
 				writer.println(scanner.nextLine());
 			}
-			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
 }
+
+
+
+
+
+
+
+
+
+

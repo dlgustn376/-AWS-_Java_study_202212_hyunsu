@@ -6,36 +6,33 @@ import usermanagement.dto.ResponseDto;
 import usermanagement.service.UserService;
 
 public class AccountController {
-	
+
 	private static AccountController instance;
 	private UserService userService;
-	
+
 	private AccountController() {
 		userService = UserService.getInstance();
 	}
-	
-	
+
 	public static AccountController getInstance() {
-		// 동기화 -> synchronized 누군가가 사용하고 있다면 접근을 하지 못하게 해준다.
-		//
-//		synchronized (instance) {	
-			if(instance == null) {
-				instance = new AccountController();
-			}
-//		}
-		
-		return instance;
+		if (instance == null) {
+			instance = new AccountController();
+		}
+
+	return instance;
+
 	}
-	
-	
-	public ResponseDto<?> register(String userJson){
+
+	public ResponseDto<?> register(String userJson) {
 		
 		Map<String, String> resultMap = userService.register(userJson);
 		
 		if(resultMap.containsKey("error")) {
 			return new ResponseDto<String>("error", resultMap.get("error"));
 		}
-		
-		return new ResponseDto<String>("ok", resultMap.get("ok"));
+
+		return new ResponseDto<String>("ok",resultMap.get("ok")); 
+
 	}
+
 }

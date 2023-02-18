@@ -1,13 +1,12 @@
 package j24_람다;
 
-@FunctionalInterface // 함수형 인터페이스. 람다용이란 의미.
+@FunctionalInterface // 
+
 public interface Instrument {
-	
 	public String play(String instrument);
 	
-	
-//	구현된 메소드는 상관이 없다.
-	public default void testPrint() {
+	public default void testPrint() { // 구현된 메소드는 추가로 만들 수 있다.
 		System.out.println("테스트");
 	}
+
 }

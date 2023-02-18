@@ -40,7 +40,7 @@ public class DBConnectionMgr {
 
     private Vector connections = new Vector(10);
     private String _driver = "com.mysql.cj.jdbc.Driver",
-    _url = "jdbc:mysql://127.0.0.1:3306/chatting", // 프로토콜:형식://주소:포트번호/데이터베이스 이름
+    _url = "jdbc:mysql://127.0.0.1:3306/chatting",
     _user = "root",
     _password = "root";
     

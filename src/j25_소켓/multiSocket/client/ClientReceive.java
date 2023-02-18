@@ -9,7 +9,8 @@ import java.net.Socket;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class ClientRecive extends Thread {
+public class ClientReceive extends Thread {
+
 	private final Socket socket;
 	
 	@Override
@@ -19,12 +20,22 @@ public class ClientRecive extends Thread {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 			
 			while(true) {
-				System.out.println(reader.readLine());
+				System.out.println(reader.readLine());		
 			}
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,4 +8,5 @@ import lombok.Data;
 public class RequestDto {
 	private String resource;
 	private String body;
+
 }

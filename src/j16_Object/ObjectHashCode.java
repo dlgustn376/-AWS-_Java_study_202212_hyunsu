@@ -1,21 +1,17 @@
-package j16_Object;
+package J16_Object;
 
 public class ObjectHashCode {
-	
 	public static void main(String[] args) {
-		Student s1 = new Student("김수현", 31);
-		Student s2 = new Student("김수현", 31);
-		SubStudent s3 = new SubStudent("김수현", 31);
-		
+		Student s1= new Student("김수현", 31);
+		Student s2= new Student("김수현", 31);
+		SubStudent s3= new SubStudent("김수현", 31);
 		
 		System.out.println(s1.hashCode());
 		System.out.println(s2.hashCode());
-		System.out.println(s3.hashCode());
 		
-		// 다른 객체에 동일한 값이 존재하는 경우
 		System.out.println(s1.hashCode() == s2.hashCode());
 		System.out.println(s1.hashCode() == s3.hashCode());
 		
 	}
-	
+
 }

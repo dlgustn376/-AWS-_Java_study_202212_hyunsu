@@ -20,19 +20,15 @@ public class JsonMap {
 		user.put("password", "1234");
 		user.put("name", null);
 		
-
 		String userJson = gson.toJson(user);
 		System.out.println(user);
 		System.out.println(userJson);
 		
-		
 		Map<String, Object> userMap = gson.fromJson(userJson, Map.class);
 		User userObj = gson.fromJson(userJson, User.class);
-		gson.fromJson(userJson, User.class);
 		
 		System.out.println(userMap);
 		System.out.println(userObj);
-		
 		
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("test1", "aaa");
@@ -41,8 +37,6 @@ public class JsonMap {
 		
 		String jsonObjectStr = jsonObject.toString();
 		System.out.println(jsonObjectStr);
-		
 	}
-	
-	
+
 }

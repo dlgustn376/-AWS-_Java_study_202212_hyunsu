@@ -1,10 +1,9 @@
-package j17_스태틱.싱글톤;
+package J17_스태틱.싱글톤;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
-		A a = A.getInstace();
 		B b = new B();
 		C c = new C();
 		
@@ -14,6 +13,7 @@ public class Main {
 		
 		System.out.println("C에서 학생 전부 출력");
 		c.showAll();
+		
 	}
 	
 }

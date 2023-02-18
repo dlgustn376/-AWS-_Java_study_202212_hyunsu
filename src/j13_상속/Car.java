@@ -1,11 +1,10 @@
-package j13_상속;
+package J13_상속;
 
 public class Car {
-	
 	private String company;
 	private String model;
 	private int price;
-
+	
 	public Car() {
 		System.out.println("부모");
 	}
@@ -35,10 +34,8 @@ public class Car {
 	}
 	
 	public int discountPrice(int percentage) {
+		return price - (price * percentage /100);
 		
-		return price - (price * percentage / 100);		
 	}
-	
-	
-	
+
 }

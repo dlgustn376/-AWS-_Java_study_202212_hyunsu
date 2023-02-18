@@ -1,6 +1,6 @@
-package j21_예외;
+package j21_예외처리;
 
-public class CustomErrorException extends RuntimeException{
+public class CustomErrorException extends RuntimeException {
 	
 	public CustomErrorException() {
 		System.out.println("내가 만든 예외 생성");
@@ -9,4 +9,5 @@ public class CustomErrorException extends RuntimeException{
 	public CustomErrorException(String message) {
 		super(message);
 	}
+
 }

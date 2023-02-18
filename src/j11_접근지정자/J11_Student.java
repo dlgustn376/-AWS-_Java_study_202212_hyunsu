@@ -1,11 +1,12 @@
-package j11_접근지정자;
+package J11_접근지정자;
 
 public class J11_Student {
-	
-	private String name;
+	String name;
 	private int age;
 	
-	public J11_Student(String name, int age) {
+
+	public J11_Student() {
+		super();
 		this.name = name;
 		this.age = age;
 	}
@@ -26,9 +27,8 @@ public class J11_Student {
 		this.age = age;
 	}
 
-	public void printInfo() {
-		System.out.println("이름: " + name);
-		System.out.println("나이: " + age);
+	void printInfo() {
+		System.out.println("이름 : " + name);
+		System.out.println("나이 : " + age);
 	}
-	
 }

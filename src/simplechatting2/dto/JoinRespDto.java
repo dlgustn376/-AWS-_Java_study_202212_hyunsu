@@ -8,6 +8,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class JoinRespDto {
-	private String welcomeMessage;
+	private String WelcomeMessage;
 	private List<String> connectedUsers;
+	
 }

@@ -19,7 +19,7 @@ public class UserSelect {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		ResultSet rs = null; 
 		
 		try {
 			con = pool.getConnection();
@@ -28,15 +28,9 @@ public class UserSelect {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, username);
 			
-			rs = pstmt.executeQuery();	// select는 ececuteQuery
+			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-//				System.out.println(rs.getInt(1));	// user_id
-//				System.out.println(rs.getString(2));// username
-//				System.out.println(rs.getString(3));// password
-//				System.out.println(rs.getString(4));// name
-//				System.out.println(rs.getString(5));// email
-				
 				user = User.builder()
 						.userId(rs.getInt(1))
 						.username(rs.getString(2))
@@ -44,10 +38,8 @@ public class UserSelect {
 						.name(rs.getString(4))
 						.email(rs.getString(5))
 						.build();
-				
+						
 			}
-			
-			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,18 +47,16 @@ public class UserSelect {
 			pool.freeConnection(con, pstmt, rs);
 		}
 		
+		
 		return user;
 	}
 	
 	public static void main(String[] args) {
 		UserSelect userSelect = new UserSelect();
 		
-		User user = userSelect.findUserByUsername("sss");
+		User user = userSelect.findUserByUsername("aaa"); // User 이름이 aaa인 것을 찾아라.
 		
-		if(user == null) {
-			System.out.println("찾고자 하는 사용자는 없는 사용자입니다.");
-		}
-		
-//		System.out.println(user);
+		System.out.println(user); // 찾은 user 출력
 	}
+
 }

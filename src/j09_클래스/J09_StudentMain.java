@@ -1,24 +1,27 @@
 package j09_클래스;
 
 public class J09_StudentMain {
-	
 	public static void main(String[] args) {
-		
-//		int a; // 초기화를 해야함. 스택영역은 자동으로 초기화 안됨.
+//		J09_Student student1 = new J09_Student();
+//		J09_Student student2 = new J09_Student(); // = : 대입 -> 값을 넣는다.
+//		/*^자료형*//*^변수명*//*^키워드*//*^값*/
 //		
+//		System.out.println(student1);
+//		System.out.println(student2);
+//		System.out.println(new J09_Student());
+//		int a = 0;
 //		System.out.println(a);
-		
-		J09_Student student1 = new J09_Student(); // 생성자 호출
-		J09_Student student2 = new J09_Student(); // 생성자 호출
-		
-		student1.setName("이현수");
-		student1.setAge(25);
-		 
-		student1.printInfo();
 
-		student2.printInfo();
-		 
-		 
+		J09_Student s1 = new J09_Student();
+		J09_Student s2 = new J09_Student();
+
+		s1.name = "김준일";
+		s1.age = 30;
+
+		s1.printInfo();
+
+		s2.printInfo();
+
 	}
-	
+
 }

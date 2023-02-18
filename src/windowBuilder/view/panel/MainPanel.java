@@ -1,30 +1,28 @@
 package windowBuilder.view.panel;
 
 import java.awt.CardLayout;
-
+import javax.swing.JPanel;
 import lombok.Data;
 
 @Data
-public class MainPanel extends InitPanel{
-//	메인 패널 안에서 화면 전환이 일어남
-//	싱글톤으로 만들어야 함
-	
+public class MainPanel extends InitPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	private CardLayout mainCard;
+
 	private static MainPanel instance;
-	
+
 	public static MainPanel getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = new MainPanel();
 		}
 		return instance;
 	}
-	
-	
-	public MainPanel() {
+
+	private MainPanel() {
 		mainCard = new CardLayout();
 		setLayout(mainCard);
 	}
@@ -33,9 +31,8 @@ public class MainPanel extends InitPanel{
 		LoginPanel loginPanel = new LoginPanel();
 		add(loginPanel, "loginPanel");
 
-		RegisterPanel registerPanel = new RegisterPanel();
-		add(registerPanel, "registerPanel");
+		RegisterPanel registerpanel = new RegisterPanel();
+		add(registerpanel, "registerpanel");
 	}
-	
-	
+
 }

@@ -1,9 +1,8 @@
-package j15_인터페이스;
+package J15_인터페이스;
 
 public abstract class Equipment {
-	
-	public void powerOn() {};
-	
-	public void powerOff() {};
 
+	public abstract void powerOn();
+
+	public abstract void powerOff();
 }

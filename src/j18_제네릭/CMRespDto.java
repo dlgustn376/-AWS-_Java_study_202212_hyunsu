@@ -1,10 +1,8 @@
-package j18_제네릭;
+package J18_제네릭;
 
-// Commit Message Response Data Transfer Object
-// 클라이언트가 서버에게 요청을 날리면 동일한 형식으로 응답해주는 응답인터페이스
-// 공통 응답객체,인터페이스
-public class CMRespDto<T> {
-	
+// commit Message Response Data Transfer Object
+// 클러이언트가 서버에게 요청을 날리면 동일한 형식으로 응답해주는 응답인터페이스
+public class CMRespDto<T> {  // 공통 응답 객체
 	private int code;
 	private String message;
 	private T data;
@@ -22,5 +20,5 @@ public class CMRespDto<T> {
 	}
 	
 	
-	
+
 }

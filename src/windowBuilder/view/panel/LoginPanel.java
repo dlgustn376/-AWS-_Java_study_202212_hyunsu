@@ -1,6 +1,8 @@
 package windowBuilder.view.panel;
 
-public class LoginPanel extends InitPanel {
+import javax.swing.JPanel;
+
+public class LoginPanel extends InitPanel{ // 로그인 화면	
 	
 	/**
 	 * 
@@ -8,6 +10,8 @@ public class LoginPanel extends InitPanel {
 	private static final long serialVersionUID = 1L;
 
 	public LoginPanel() {
-	
+		MainPanel mainPanel = MainPanel.getInstance();
+		
 	}
+	
 }

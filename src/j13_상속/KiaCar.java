@@ -1,20 +1,25 @@
-package j13_상속;
+package J13_상속;
 
 public class KiaCar extends Car {
-	
+
 	public KiaCar() {
-		super();		// 항상 상위
+		super(); // this -> 자기자신을 의미, super -> 상위 객체를 호출
 		System.out.println("자식");
-		
+
+//		System.out.println("자식");
+//		super(); // 이렇게 하면 부모 객체를 호출할 수 없다. 그래서 최상단에 입력을 해야 한다.
+
 	}
-	
+
 	@Override
 	public int discountPrice(int percentage) {
+		// TODO Auto-generated method stub
 		return super.discountPrice(percentage);
 	}
-	// 오버라이드를 안하면 Car 부모에 있는 것을 직접 가져오는 것.
-	// 오버라이드를 하면 KiaCar 자식에 있는 오버라이드 된 것을 가져오는것
-	// 서로 다른 메소드로 주소값도 다르다.
+
 	
-	
+
+	public void test() {
+		KiaCar kc = this;
+	}
 }

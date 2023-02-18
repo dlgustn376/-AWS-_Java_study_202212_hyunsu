@@ -1,6 +1,8 @@
 package windowBuilder.view.panel;
 
-public class RegisterPanel extends InitPanel {
+import javax.swing.JPanel;
+
+public class RegisterPanel extends InitPanel{ // 회원가입 화면
 	
 	/**
 	 * 
@@ -9,5 +11,7 @@ public class RegisterPanel extends InitPanel {
 
 	public RegisterPanel() {
 		
+		
 	}
+	
 }

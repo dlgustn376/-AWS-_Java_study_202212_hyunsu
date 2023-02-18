@@ -1,17 +1,26 @@
-package j17_스태틱.싱글톤;
+package J17_스태틱.싱글톤;
 
 import java.util.Scanner;
 
 public class B {
 	
-	public void insertStudent(){
+	public void insertStudent() {
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("학생이름: ");
+		System.out.print("학생 이름: ");
 		String name = scanner.nextLine();
 		
 		Student student = new Student(name);
-		A.getInstace().addStudent(student);
-		A.getInstace().showStudents();
+		A.getInstance().addStudent(student);
+		A.getInstance().showStudents();
 	}
+	
 }
+
+
+
+
+
+
+
+

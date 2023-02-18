@@ -1,46 +1,18 @@
 package j09_클래스;
 
-public class J09_Student {
-	
-	String name; 
-	int age;	
-	
+public class J09_Student { // 어디서나 접근이 가능하다 -> 패키지 단위, private -> 해당 클래스 내부에서만 사용 가능
+
+	String name;
+	int age;
+
 	// 기본 생성자
-	J09_Student() {
+	public J09_Student() {
 		System.out.println("생성됨!!!!");
 	}
-	
-	
-	
-	public J09_Student(String name, int age) {
-		this.name = name;
-		this.age = age;
+
+	void printInfo() {
+		System.out.println("이름 : " + name);
+		System.out.println("나이 : " + age);
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name + "님";
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-	public void printInfo() {
-		System.out.println("이름: " + name);
-		System.out.println("나이: " + age);
-	}
-
-	@Override
-	public String toString() {
-		return "J09_Student [name=" + name + ", age=" + age + "]";
-	}
-	
 }

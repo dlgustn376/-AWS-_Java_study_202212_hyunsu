@@ -13,38 +13,38 @@ import com.google.gson.Gson;
 
 import usermanagement.dto.RequestDto;
 
-
-
 public class SocketClient {
-	
 	public static void main(String[] args) {
 		
+		
 		try {
-			
-			Socket socket = new Socket("127.0.0.1",9090);
+			Socket socket = new Socket("127.0.0.1",9090); //ip, port
 			System.out.println("서버에 접속 성공!");
 			
 			InputStream inputStream = socket.getInputStream();
 			InputStreamReader streamReader = new InputStreamReader(inputStream);
 			BufferedReader reader = new BufferedReader(streamReader);
 			
-//			System.out.println(reader.readLine()); // 한 줄씩 가져온다. readLImE
-		
+//			System.out.println(reader.readLine()); // readline -> 한 줄 읽기
+			
 			OutputStream outputStream = socket.getOutputStream();
 			PrintWriter printWriter = new PrintWriter(outputStream, true);
 			
 			Gson gson = new Gson();
 			RequestDto<String> dto = new RequestDto<String>("test", "테스트 데이터");
 			
-			printWriter.println(gson.toJson(dto));
-			
-		} catch (UnknownHostException e) {
-			// IP를 잡지 못했을 때 
+			printWriter.println();
+		
+		
+		} catch (UnknownHostException e) { // 연결 못 했을 때
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// 인터넷 연결이 안되었을 때
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 	}
 
 }
+
+
