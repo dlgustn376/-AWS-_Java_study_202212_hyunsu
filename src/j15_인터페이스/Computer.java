@@ -1,4 +1,4 @@
-package J15_인터페이스;
+package j15_인터페이스;
 
 public class Computer implements Calculator{ //Calculator가 가지는 메소드가 추상 클래스 이기 때문에 빨간 줄이 생긴다. 
 

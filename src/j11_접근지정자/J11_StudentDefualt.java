@@ -1,4 +1,4 @@
-package J11_접근지정자.default1;
+package j11_접근지정자;
 
 public class J11_StudentDefualt {
 	private String name;

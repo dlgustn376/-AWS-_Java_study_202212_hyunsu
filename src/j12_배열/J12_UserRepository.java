@@ -1,4 +1,4 @@
-package J12_배열;
+package j12_배열;
 
 //저장소
 public class J12_UserRepository {

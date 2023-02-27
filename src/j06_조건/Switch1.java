@@ -1,6 +1,6 @@
 package j06_조건;
 
-public class switch1 {
+public class Switch1 {
 
 	public static void main(String[] args) {
 		

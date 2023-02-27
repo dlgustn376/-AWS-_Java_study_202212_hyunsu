@@ -1,4 +1,4 @@
-package J12_배열.복습;
+package j12_배열.복습;
 
 public class Array1 {
 	public static void main(String[] args) {

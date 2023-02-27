@@ -1,4 +1,4 @@
-package J14_추상;
+package j14_추상;
 
 public abstract class Transportation { // abstract class - 추상 클래스, 
 	

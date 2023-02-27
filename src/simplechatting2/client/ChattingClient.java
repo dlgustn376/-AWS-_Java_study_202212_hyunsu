@@ -53,13 +53,14 @@ public class ChattingClient extends JFrame {
 	private Socket socket;
 	private Gson gson;
 	private String username;
+	private String roomname;
 
 	private JPanel contentPane;
 	private JTextField ipInput;
 	private JTextField portInput;
 	private JTextArea contentView;
 	private JTextField messageInput;
-	private JList userList;
+	private JList<String> userList;
 	private DefaultListModel<String> userlistModel;
 
 	public static void main(String[] args) {
@@ -152,7 +153,7 @@ public class ChattingClient extends JFrame {
 
 		userlistModel = new DefaultListModel<>();
 
-		userList = new JList();
+		userList = new JList<String>();
 		userListScroll.setViewportView(userList);
 
 		JScrollPane messageScroll = new JScrollPane();
@@ -220,4 +221,17 @@ public class ChattingClient extends JFrame {
 			e.printStackTrace();
 		}
 	}
+	private void sendMessage() {
+		if(!messageInput.getText().isBlank()) {
+			String message = messageInput.getText();
+			MessageReqDto messageReqDto = 
+					new MessageReqDto(roomname,username, message);
+			
+			sendRequest("sendMessage", gson.toJson(messageReqDto));
+			messageInput.setText("");
+			
+		}
+	}
+	
+	
 }

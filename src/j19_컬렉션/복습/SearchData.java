@@ -1,4 +1,4 @@
-package J19_컬렉션.복습;
+package j19_컬렉션.복습;
 
 import java.util.HashMap;
 import java.util.Map;

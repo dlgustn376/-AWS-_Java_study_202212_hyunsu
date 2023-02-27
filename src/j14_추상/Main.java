@@ -1,4 +1,4 @@
-package J14_추상;
+package j14_추상;
 
 public class Main {
 	public static void main(String[] args) {

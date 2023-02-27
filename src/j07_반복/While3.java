@@ -2,7 +2,7 @@ package j07_반복;
 
 import java.util.Scanner;
 
-public class while3 {
+public class While3 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);

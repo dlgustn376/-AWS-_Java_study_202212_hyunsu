@@ -1,6 +1,6 @@
-package J15_인터페이스;
+package j15_인터페이스;
 
-public class generalCalculator extends Equipment implements Calculator {
+public class GeneralCalculator extends Equipment implements Calculator {
 
 	@Override
 	public void powerOn() {

@@ -1,4 +1,4 @@
-package J13_상속.casting2;
+package j13_상속.casting2;
 
 public class Subway extends Transportation {
 	

@@ -1,4 +1,4 @@
-package J15_인터페이스;
+package j15_인터페이스;
 
 public interface Calculator {
 

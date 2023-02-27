@@ -1,4 +1,4 @@
-package J18_제네릭;
+package j18_제네릭;
 
 // commit Message Response Data Transfer Object
 // 클러이언트가 서버에게 요청을 날리면 동일한 형식으로 응답해주는 응답인터페이스

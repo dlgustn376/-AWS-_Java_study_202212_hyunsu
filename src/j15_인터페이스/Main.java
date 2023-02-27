@@ -1,11 +1,11 @@
-package J15_인터페이스;
+package j15_인터페이스;
 
 public class Main {
 	public static void main(String[] args) {
 
 		Equipment[] equipments = new Equipment[2];
 
-		equipments[0] = new generalCalculator();
+		equipments[0] = new GeneralCalculator();
 		equipments[1] = new SmartPhone();
 
 		Calculator calculator = new Computer();

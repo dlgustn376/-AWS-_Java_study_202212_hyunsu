@@ -1,4 +1,4 @@
-package J16_Object;
+package j16_Object;
 
 import java.util.Objects;
 

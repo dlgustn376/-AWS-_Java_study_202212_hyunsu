@@ -1,4 +1,4 @@
-package J13_상속.casting;
+package j13_상속.casting;
 
 public class MainView extends View {
 

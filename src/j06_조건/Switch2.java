@@ -2,7 +2,7 @@ package j06_조건;
 
 import java.util.Scanner;
 
-public class switch2 {
+public class Switch2 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);

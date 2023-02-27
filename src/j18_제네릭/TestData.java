@@ -1,4 +1,4 @@
-package J18_제네릭;
+package j18_제네릭;
 
 public class TestData<T> { // <T> -> 제네릭
 	private String data1;

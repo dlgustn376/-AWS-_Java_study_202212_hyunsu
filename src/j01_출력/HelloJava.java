@@ -1,6 +1,5 @@
 package j01_출력;
 
-import J17_스태틱.싱글톤.KIA;
 
 public class HelloJava { // 클래스는 대문자로 시작한다. 변수명과 겹치기 때문이다.
 
@@ -27,7 +26,6 @@ public class HelloJava { // 클래스는 대문자로 시작한다. 변수명과
 		
 		System.out.println();
 		
-		KIA.getInstance().printCompanyName();
 	}
 
 }

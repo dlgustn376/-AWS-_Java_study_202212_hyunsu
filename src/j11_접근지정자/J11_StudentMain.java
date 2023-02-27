@@ -1,6 +1,4 @@
-package J11_접근지정자;
-
-import J11_접근지정자.default1.J11_StudentDefualt;
+package j11_접근지정자;
 
 public class J11_StudentMain {
 	public static void main(String[] args) {

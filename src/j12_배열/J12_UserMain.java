@@ -1,4 +1,4 @@
-package J12_배열;
+package j12_배열;
 
 public class J12_UserMain {
 	public static void main(String[] args) {

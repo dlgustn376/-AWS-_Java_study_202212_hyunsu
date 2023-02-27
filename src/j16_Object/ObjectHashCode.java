@@ -1,4 +1,4 @@
-package J16_Object;
+package j16_Object;
 
 public class ObjectHashCode {
 	public static void main(String[] args) {

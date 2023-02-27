@@ -1,4 +1,4 @@
-package J17_스태틱;
+package j17_스태틱;
 
 public class Teacher {
 	private String name;

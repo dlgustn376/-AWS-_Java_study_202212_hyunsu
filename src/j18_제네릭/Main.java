@@ -1,4 +1,4 @@
-package J18_제네릭;
+package j18_제네릭;
 
 public class Main {
 	public static void main(String[] args) {

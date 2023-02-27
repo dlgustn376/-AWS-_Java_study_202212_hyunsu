@@ -1,4 +1,4 @@
-package J12_배열.di;
+package j12_배열.di;
 
 public class Test_C {
 	

@@ -1,4 +1,4 @@
-package J12_배열;
+package j12_배열;
 
 //Entity 클래스 (실제 DataBase의 테이블과 1 : 1로 매핑 되는 객체, Entity란 DB에서 영속적으로 저장된 데이터를 자바 객체로 매핑하여 '인스턴스의 형태'로 존재하는 데이터를 말합니다. )
 public class J12_User {
