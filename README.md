@@ -22,8 +22,8 @@
 ---
 
 ### J01 ~ J26
-* [출력](https://github.com/dlgustn376/-AWS-_Java_study_202212_hyunsu/tree/main/src/j01_%EC%B6%9C%EB%A0%A5)
-* [변수](https://github.com/dlgustn376/-AWS-_Java_study_202212_hyunsu/tree/main/src/j02_%EB%B3%80%EC%88%98)
+- [출력](https://github.com/dlgustn376/-AWS-_Java_study_202212_hyunsu/tree/main/src/j01_%EC%B6%9C%EB%A0%A5)
+- [변수](https://github.com/dlgustn376/-AWS-_Java_study_202212_hyunsu/tree/main/src/j02_%EB%B3%80%EC%88%98)
 * [형변환](https://github.com/dlgustn376/-AWS-_Java_study_202212_hyunsu/tree/main/src/j03_%ED%98%95%EB%B3%80%ED%99%98)
 * [연산자](https://github.com/dlgustn376/-AWS-_Java_study_202212_hyunsu/tree/main/src/j04_%EC%97%B0%EC%82%B0%EC%9E%90)
 * [입력](https://github.com/dlgustn376/-AWS-_Java_study_202212_hyunsu/tree/main/src/j05_%EC%9E%85%EB%A0%A5)
