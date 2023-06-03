@@ -11,7 +11,7 @@
 ---
 
 ### J01 ~ J26
-* 출력 [출력](https://github.com/dlgustn376/-AWS-_Java_study_202212_hyunsu/tree/main/src/j01_%EC%B6%9C%EB%A0%A5)
+* [J01_출력](https://github.com/dlgustn376/-AWS-_Java_study_202212_hyunsu/tree/main/src/j01_%EC%B6%9C%EB%A0%A5)
 * 변수
 * 형변환
 * 연산자
