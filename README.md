@@ -2,11 +2,22 @@
 산대특 AWS기반 공공빅데이터 활용 웹개발자 양성과정 JAVA 활용 및 응용
 
 ## Java 프로그래밍언어 공부
-### STS4 사용
-* lombok
-* gson
-* jbcrypt
-* mysql
+
+## 라이브러리
+- Jdk 11 
+- Spring Boot 2.6.6
+- MySQL 8 
+- Lombok
+- Maven
+
+---
+
+## tools
+- Spring tool suite 4
+- MySQL Workbench
+- Postman
+- Git
+- SourceTree
 
 ---
 
